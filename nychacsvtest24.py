@@ -22,16 +22,14 @@ import sys
 import numpy as np
 
 print('Ascribing stats for NYCHA service requests per CSV file with and without work order.')
-print('The stats for lead- and mold/mildew-related service requests')
+print('The stats for lead--related service requests')
 print('will be made, according to public housing development and borough.')
 print(' ')
 
 # define location of CSV file to be searched and of lookup table.
 
-import requests
 import os
 os.chdir('/Applications/nychatest')
-# Location = requests.get('https://drive.google.com/folderview?id=0B9G3z0zSlDX1Wkxmc3VCcG9XTjg&usp=drive_web')
 Location = r'/Applications/nychatest/sr_withandwithout_workorder.csv'
 df = pd.read_csv(Location)
 df['TDS_ID'] = df.LOCATION_ID.str[:3]
@@ -41,15 +39,11 @@ df['TDS_ID'] = df.LOCATION_ID.str[:3]
 ceiling = 'Ceiling - Lead Paint'
 leak = 'Leak From Above - Needs Lead Testing'
 wall = 'Walls - Lead Paint'
-# need = 'Mildew Condition - Needs Painting'
-# paint = 'Mildew Condition - Paint After Repair'
-# peel = 'Paint - Peeling'
 masklead = df['DESCRIPTION'].isin([ceiling, leak, wall])
 df = df[masklead]
 
 # Set up lookup table and filter by location
 
-# tdsfile = requests.get('https://drive.google.com/file/d/0B9EgtfYGBBK9bnMwdmhRWGw5dzQ/view?usp=sharing')
 tdsfile = r'/Applications/nychatest/NYCHATDSManual.xlsx'
 tdslut = pd.ExcelFile(tdsfile)
 tdslut = tdslut.parse("Sheet1")
