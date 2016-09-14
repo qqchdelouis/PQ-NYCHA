@@ -2,6 +2,11 @@
 # -*- coding: utf-8 -*-
 # filterExcessCommasCSV.py - Weed out lines of TXT or CSV files 
 # that have excess commas. 
+# 
+# Copyright 2016 Progress Queens, Inc. (CC BY 4.0)
+# You are free to share and adapt, provided you provide attribution and
+# make no additional restrictions to its use. For notices and other
+# information, visit : http://creativecommons.org/licenses/by/4.0/
 
 from pandas import read_csv
 import pandas as pd
