@@ -8,8 +8,6 @@
 # make no additional restrictions to its use. For notices and other
 # information, visit : http://creativecommons.org/licenses/by/4.0/
 
-from pandas import read_csv
-import pandas as pd
 import csv, fileinput, os, sys
 
 os.chdir(r'/Applications/nychatest/FR2/delimitErrors')
